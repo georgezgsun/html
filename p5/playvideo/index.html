@@ -1,0 +1,95 @@
+<!DOCTYPE html> 
+<html> 
+<body> 
+
+<div style="text-align:left"> 
+<!--  <button onclick="playPause()">Play/Pause</button> -->
+  <button onclick="makeBig()">Big</button>
+  <button onclick="makeSmall()">Small</button>
+  <button onclick="makeNormal()">Normal</button>
+  <br><br>
+  <video poster="/web-images/IMG_2289.jpg" id="video1" width="420" autoplay>
+    <source src="/web-videos/22-59.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+</div> 
+<p id='info'> Information bar </p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
+
+<script>
+var myVideo = document.getElementById("video1");
+var DispText = ""
+
+function playPause() 
+{ 
+  if (myVideo.paused) 
+    myVideo.play(); 
+  else 
+    myVideo.pause(); 
+} 
+
+function makeBig() 
+{ 
+    myVideo.width = 720; 
+} 
+
+function makeSmall() 
+{ 
+    myVideo.width = 320; 
+} 
+
+function makeNormal() 
+{ 
+    myVideo.width = 420; 
+} 
+
+function setup() 
+{
+  createCanvas(420, 100);
+  background(50);
+}
+function draw() 
+{
+  var videoX;
+  var d = myVideo.duration;
+  var t = myVideo.currentTime;
+  if (d > 0)
+    videoX = t * width / d;
+  else
+	videoX=0;
+
+  var txt = "Time " + round(d) + " : " + round(t) + " : " + round(videoX);
+  if (txt != DispText)
+  {  
+    document.getElementById("info").innerHTML = txt;
+	DispText = txt;
+  }
+
+  fill(255);
+  ellipse(videoX+20, 30, 20, 20);
+}
+
+function mousePressed() 
+{
+  if (myVideo.paused) 
+  {
+    var d = myVideo.duration;
+	background(50);
+    if (d <= 0)
+		return;
+    if (mouseX > 0 && mouseX < width)
+		myVideo.currentTime = mouseX / width * d; 
+<!--    myVideo.time((mouseX/myVideo.width) * myVideo.duration()); -->
+    myVideo.play();
+  }
+  else 
+  {
+    myVideo.pause();
+  }
+}
+</script> 
+
+
+</body> 
+</html>
