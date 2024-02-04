@@ -1,9 +1,32 @@
 <!DOCTYPE html> 
 <html> 
+  <head>
+    <style>
+
+		div{
+			text-align: center;
+      margin-top: 50px;
+		}
+
+		div a{
+			background: linear-gradient(0.25turn, red, yellow);
+			border: 3px solid rgb(0, 12, 73);
+			border-radius: 5px;
+			padding: 5px 5px;
+      color: black;
+      text-decoration: none;
+      transition: all 0.2s ease;
+		}
+
+    div a:hover{
+      background: linear-gradient(yellow, red)
+    }
+    </style>
+  </head>
 <body> 
 
-<div style="text-align:center"> 
-<!--  <button onclick="playPause()">Play/Pause</button> -->
+<!-- <div style="text-align:center"> 
+ <button onclick="playPause()">Play/Pause</button>
   <button onclick="makeBig()">Big</button>
   <button onclick="makeSmall()">Small</button>
   <button onclick="makeNormal()">Normal</button>
@@ -12,12 +35,17 @@
     <source src="/web-videos/22-59.mp4" type="video/mp4">
     Your browser does not support HTML5 video.
   </video>
-</div> 
+</div>  -->
 
-<div style="text-align: center;">
-   <a href="/p5/foxrabbit/index.html">Fox Rabbit Simulation</a>
+<div>
+   <a href="p5/foxrabbit/index.html">Fox Rabbit Simulation</a>
+   <a href="p5/matrixrain/index.html">Matrix Rain</a>
+   <a href="p5/mouse/index.html">Mouse</a>
+   <a href="p5/powdergame/index.html">Powder Sandbox Game</a>
+   <a href="p5/snake/index.html">Snake Game</a>
 </div>
 
+<!-- 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.14/p5.js"></script>
 
 <script>
@@ -65,8 +93,8 @@ function mousePressed()
 {
   if (myVideo.paused) 
   {
-<!--    if (myVideo.duration > 0 && mouseX
-<!--    myVideo.time((mouseX/myVideo.width) * myVideo.duration()); -->
+   if (myVideo.duration > 0 && mouseX
+<!--    myVideo.time((mouseX/myVideo.width) * myVideo.duration());
     myVideo.play();
   }
   else 
@@ -74,7 +102,7 @@ function mousePressed()
     myVideo.pause();
   }
 }
-</script> 
+</script>  -->
 
 
 </body> 
